@@ -1,0 +1,61 @@
+
+@page
+@model TablesModel
+<h2>Azure Tables</h2>
+
+<div class="card">
+    <h3>Add Customer</h3>
+    <form method="post" asp-page-handler="AddCustomer">
+        <input name="FirstName" placeholder="First Name" required />
+        <input name="LastName" placeholder="Last Name" required />
+        <input name="Email" placeholder="Email" type="email" required />
+        <input name="Phone" placeholder="Phone" required />
+        <input type="submit" value="Add Customer" />
+    </form>
+</div>
+
+<div class="card">
+    <h3>Customers (Top)</h3>
+    <table>
+        <thead><tr><th>Name</th><th>Email</th><th>Phone</th></tr></thead>
+        <tbody>
+        @foreach (var c in Model.Customers)
+        {
+            <tr>
+                <td>@c.FirstName @c.LastName</td>
+                <td>@c.Email</td>
+                <td>@c.Phone</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>
+
+<div class="card">
+    <h3>Add Product</h3>
+    <form method="post" asp-page-handler="AddProduct">
+        <input name="Name" placeholder="Name" required />
+        <input name="Sku" placeholder="SKU" required />
+        <input name="Price" placeholder="Price" type="number" step="0.01" required />
+        <input name="Stock" placeholder="Stock" type="number" required />
+        <input type="submit" value="Add Product" />
+    </form>
+</div>
+
+<div class="card">
+    <h3>Products (Top)</h3>
+    <table>
+        <thead><tr><th>Name</th><th>SKU</th><th>Price</th><th>Stock</th></tr></thead>
+        <tbody>
+        @foreach (var p in Model.Products)
+        {
+            <tr>
+                <td>@p.Name</td>
+                <td>@p.Sku</td>
+                <td>@p.Price</td>
+                <td>@p.Stock</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+</div>

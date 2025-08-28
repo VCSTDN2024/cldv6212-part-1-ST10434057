@@ -1,0 +1,10 @@
+
+body { font-family: Arial, sans-serif; margin: 0; }
+.topnav { background: #1f2937; padding: 10px; }
+.topnav a { color: #fff; margin-right: 15px; text-decoration: none; }
+.container { padding: 20px; }
+.card { border: 1px solid #ddd; padding: 16px; border-radius: 8px; margin-bottom: 16px; }
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #ddd; padding: 8px; }
+th { background: #f3f4f6; text-align: left; }
+button, input[type=submit] { padding: 8px 12px; }

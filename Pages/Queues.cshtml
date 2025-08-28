@@ -1,0 +1,38 @@
+
+@page
+@model QueuesModel
+<h2>Azure Queue Storage</h2>
+
+<div class="card">
+    <h3>Add Message</h3>
+    <form method="post" asp-page-handler="Add">
+        <input name="messageText" placeholder="Message text" required />
+        <input type="submit" value="Enqueue" />
+    </form>
+</div>
+
+<div class="card">
+    <h3>Peek Messages</h3>
+    <form method="get">
+        <input name="count" type="number" min="1" max="32" value="@Model.Count" />
+        <input type="submit" value="Refresh" />
+    </form>
+    <ul>
+        @foreach (var m in Model.Messages)
+        {
+            <li>@m</li>
+        }
+    </ul>
+</div>
+
+<div class="card">
+    <h3>Dequeue & Delete</h3>
+    <form method="post" asp-page-handler="Dequeue">
+        <input name="count" type="number" min="1" max="32" value="1" />
+        <input type="submit" value="Dequeue" />
+    </form>
+    @if (Model.RemovedCount > 0)
+    {
+        <p>Removed @Model.RemovedCount message(s).</p>
+    }
+</div>

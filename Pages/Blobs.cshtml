@@ -1,0 +1,25 @@
+
+@page
+@model BlobsModel
+<h2>Azure Blob Storage</h2>
+
+<div class="card">
+    <h3>Upload Image</h3>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/*" required />
+        <input type="submit" value="Upload" />
+    </form>
+</div>
+
+<div class="card">
+    <h3>Images</h3>
+    <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        @foreach (var url in Model.ImageUrls)
+        {
+            <div>
+                <img src="@url" alt="blob image" style="width:160px;height:160px;object-fit:cover;border:1px solid #ddd;border-radius:8px;" />
+                <div style="max-width:160px; word-wrap:anywhere; font-size:12px;">@url</div>
+            </div>
+        }
+    </div>
+</div>

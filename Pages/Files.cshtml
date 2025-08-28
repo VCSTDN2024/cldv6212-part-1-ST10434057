@@ -1,0 +1,24 @@
+
+@page
+@model FilesModel
+<h2>Azure Files (File Shares)</h2>
+
+<div class="card">
+    <h3>Upload Contract</h3>
+    <form method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required />
+        <input type="submit" value="Upload" />
+    </form>
+</div>
+
+<div class="card">
+    <h3>Contracts</h3>
+    <ul>
+        @foreach (var name in Model.Files)
+        {
+            <li>
+                @name - <a href="/Files?handler=Download&name=@name">Download</a>
+            </li>
+        }
+    </ul>
+</div>
